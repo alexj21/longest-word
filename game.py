@@ -2,6 +2,8 @@
 # pylint: disable=too-few-public-methods
 import random
 import string
+import urllib.request
+import json
 
 class Game:
     def __init__(self):
@@ -20,4 +22,20 @@ class Game:
                 letters.remove(letter)
             else:
                 return False
+
+        #https://wagon-dictionary.herokuapp.com/test
+        url = "https://wagon-dictionary.herokuapp.com/"+word
+        response = urllib.request.urlopen(url)
+        data = json.loads(response.read())
+
+        return data['found']
+
+
+
+
+
+
+
+
+
         return True
