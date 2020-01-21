@@ -27,15 +27,4 @@ class Game:
         url = "https://wagon-dictionary.herokuapp.com/"+word
         response = urllib.request.urlopen(url)
         data = json.loads(response.read())
-
         return data['found']
-
-
-
-
-
-
-
-
-
-        return True
